@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://gea08171rbgt" path="res://candle.png" id="2_8fjmc"]
 [ext_resource type="Texture2D" uid="uid://vefcmwiyg36d" path="res://assets/player/idle.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://c2ali7awfi8r6" path="res://assets/player/walk.png" id="3_fkugw"]
+[ext_resource type="Script" uid="uid://u2de1x4jvby2" path="res://entities/player/light_flicker.gd" id="4_qiwj3"]
 [ext_resource type="Script" uid="uid://do62qi0qqux4w" path="res://entities/player/interact_component.gd" id="6_8fjmc"]
 [ext_resource type="Texture2D" uid="uid://f6hp80w8i03h" path="res://flame.png" id="6_qiwj3"]
 
@@ -245,6 +246,7 @@ shadow_enabled = true
 shadow_color = Color(0.050980393, 0.050980393, 0.050980393, 0.18039216)
 shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_qiwj3")
+script = ExtResource("4_qiwj3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1614031693]
 visible = false

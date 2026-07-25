@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="candle"
-run/main_scene="uid://cppa3jnqfrxmj"
+run/main_scene="uid://bn6d7vq25desp"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
