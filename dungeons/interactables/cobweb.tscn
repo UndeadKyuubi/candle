@@ -3,15 +3,17 @@
 [ext_resource type="Script" uid="uid://dmegw6drkhllx" path="res://dungeons/interactables/cobweb.gd" id="1_g5lvt"]
 [ext_resource type="Script" uid="uid://tsluhknq7omg" path="res://dungeons/interactables/shared/interactable.gd" id="2_nlp7q"]
 [ext_resource type="Texture2D" uid="uid://bs2ingsvtmngx" path="res://dungeons/interactables/cobweb.png" id="3_jy8ud"]
+[ext_resource type="AudioStream" uid="uid://dd0jwfr1xevpb" path="res://assets/floraphonic-fire-torch-whoosh-2-186586.mp3" id="4_nlp7q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yuod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as7xp"]
 size = Vector2(16, 16)
 
-[node name="Cobweb" type="StaticBody2D" unique_id=950412346 node_paths=PackedStringArray("interactable")]
+[node name="Cobweb" type="StaticBody2D" unique_id=950412346 node_paths=PackedStringArray("interactable", "fire_woosh")]
 script = ExtResource("1_g5lvt")
 interactable = NodePath("Interactable")
+fire_woosh = NodePath("AudioStreamPlayer")
 
 [node name="Interactable" type="Area2D" parent="." unique_id=1080608381]
 collision_layer = 4
@@ -28,3 +30,9 @@ texture = ExtResource("3_jy8ud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112288682]
 shape = SubResource("RectangleShape2D_as7xp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2012014506]
+stream = ExtResource("4_nlp7q")
+volume_db = -10.0
+pitch_scale = 0.8
+bus = &"Sounds"

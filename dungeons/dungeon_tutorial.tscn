@@ -604,6 +604,7 @@ position = Vector2(141, 19)
 position = Vector2(159, 151)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1325740558]
+visible = false
 color = Color(0.27752745, 0.2775278, 0.27752772, 1)
 
 [node name="EnemyTest" parent="." unique_id=2141791888 instance=ExtResource("5_h1xbx")]
