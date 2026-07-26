@@ -15,8 +15,7 @@ func _ready() -> void:
 	sprite.region_rect = CLOSED_DOOR_REGION
 	interactable.interact = _on_interact
 	islocked=starts_locked
-
-
+	
 func _on_interact() -> void:
 	if islocked:
 		pass
@@ -29,4 +28,6 @@ func _on_interact() -> void:
 func unlock_door()->void:
 	Unlock_Sound.play()
 	islocked=false
+	
+
 	

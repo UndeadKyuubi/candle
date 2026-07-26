@@ -3,6 +3,7 @@ class_name Player
 
 #region exports
 @export_group("Nodes")
+@export_group("player")
 #@export var animated_sprite: AnimatedSprite2D
 #@export var cha
 @export var wax_bar: ProgressBar
@@ -40,9 +41,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("scroll_down") and heat_scale>0.1:
 		heat_scale-=.05
 	
-	if Door.islocked:
-		if global_position>=Vector2(100.0,50.0) and global_position<=Vector2(110,60):
-			Door.unlock_door()
+	
 	_handle_animations(delta)
 	
 	wax -= .1*delta*heat_scale
