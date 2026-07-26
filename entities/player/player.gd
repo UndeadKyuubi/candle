@@ -15,6 +15,8 @@ class_name Player
 @export_group("")
 #endregion
 
+@onready var foreground_layer: TileMapLayer = $"../Foreground"
+
 #region state
 var input_dir: Vector2 = Vector2.ZERO
 var heat_scale:float=.8 
@@ -51,9 +53,25 @@ func _physics_process(delta: float) -> void:
 		if body != null and body.is_in_group("enemies"):
 			take_damage(body.global_position)
 			
+	check_tile()
+			
 	knockback=lerp(knockback,Vector2.ZERO, 0.1)
 	if wax<=0.0:
 		SceneManager.reload_current_scene()
+		
+func check_tile() -> void:
+	var map_position: Vector2i = foreground_layer.local_to_map(foreground_layer.to_local(global_position))
+	var tile: TileData = foreground_layer.get_cell_tile_data(map_position)
+	
+	if tile and tile.get_custom_data("is_trigger"):
+		trigger_tile(map_position)
+		
+func trigger_tile(map_position: Vector2i) -> void:
+	foreground_layer.set_cell(map_position, -1)
+	var door = get_node_or_null("../Door")
+	
+	if door and door.has_method("_unlock"):
+		door._unlock()
 
 func _handle_animations(delta) -> void:
 	if input_dir != Vector2.ZERO:
