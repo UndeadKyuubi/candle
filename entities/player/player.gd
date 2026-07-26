@@ -13,6 +13,7 @@ class_name Player
 @export_group("Feel")
 @export var speed: float = 100.0
 @export_group("")
+@onready var Door=$"../Door"
 #endregion
 
 #region state
@@ -39,6 +40,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("scroll_down") and heat_scale>0.1:
 		heat_scale-=.05
 	
+	if Door.islocked:
+		if global_position>=Vector2(100.0,50.0) and global_position<=Vector2(110,60):
+			Door.unlock_door()
 	_handle_animations(delta)
 	
 	wax -= .1*delta*heat_scale

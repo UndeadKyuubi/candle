@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://pd0ejgh253pj" path="res://dungeons/interactables/cobweb.tscn" id="3_47rci"]
 [ext_resource type="PackedScene" uid="uid://dr3blodr0maf" path="res://dungeons/interactables/door.tscn" id="4_5ofac"]
 [ext_resource type="PackedScene" uid="uid://dtwj0bpn6kdbw" path="res://entities/player/player.tscn" id="5_24wws"]
+[ext_resource type="AudioStream" uid="uid://dejgn1u6glyof" path="res://Sound Effects/freesound_community-mortice-door-lock-being-locked-and-unlocked-95884.wav" id="5_mcryf"]
 [ext_resource type="Shader" uid="uid://cb5vffel8n6e3" path="res://KeyGradient.gdshader" id="6_5ofac"]
 [ext_resource type="Texture2D" uid="uid://catowbj2wiyg0" path="res://KeyplaceHolder.png" id="7_24wws"]
 [ext_resource type="Shader" uid="uid://bhgu6d35e804l" path="res://CullingShader.gdshader" id="9_24wws"]
@@ -804,8 +805,12 @@ tile_set = SubResource("TileSet_8mexq")
 tile_map_data = PackedByteArray("AAAGAAMAAAAAAAAAAQAFAAMAAAAAAAAAAQAEAAMAAAAAAAAAAQADAAMAAAAAAAAAAQACAAMAAAAAAAAAAQABAAMAAAAAAAAAAQAAAAMAAAAAAAAAAQAGAAIAAAAAAAAAAQAFAAIAAAAAAAAAAQAEAAIAAAAAAAAAAQADAAIAAAAAAAAAAQACAAIAAAAAAAAAAQABAAIAAAAAAAAAAQAAAAIAAAAAAAAAAQABAAQAAAAAAAAAAQAAAAQAAAAAAAAAAQAAAAUAAAAAAAAAAQAAAAYAAAAAAAAAAQABAAYAAAAAAAAAAQABAAUAAAAAAAAAAQABAAcAAAAAAAAAAQAAAAcAAAAAAAAAAQAAAAgAAAAAAAAAAQAAAAkAAAAAAAAAAQABAAkAAAAAAAAAAQABAAgAAAAAAAAAAQAAAAoAAAAAAAAAAQABAAoAAAAAAAAAAQABAAsAAAAAAAAAAQAAAAsAAAAAAAAAAQAAAAwAAAAAAAAAAQAAAA0AAAAAAAAAAQABAA0AAAAAAAAAAQABAAwAAAAAAAAAAQACAAsAAAAAAAAAAQACAAwAAAAAAAAAAQAAAA4AAAAAAAAAAQAAAA8AAAAAAAAAAQADAAsAAAAAAAAAAQAHAAUAAAAAAAAAAQAIAAUAAAAAAAAAAQAJAAUAAAAAAAAAAQAJAAYAAAAAAAAAAQAIAAYAAAAAAAAAAQAHAAYAAAAAAAAAAQAHAAcAAAAAAAAAAQAIAAcAAAAAAAAAAQAJAAcAAAAAAAAAAQAOAAYAAAAAAAAAAQAOAAcAAAAAAAAAAQAPAAcAAAAAAAAAAQAPAAgAAAAAAAAAAQAPAAYAAAAAAAAAAQAJAAgAAAAAAAAAAQAKAAgAAAAAAAAAAQAKAAcAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_0nfwv")
 
-[node name="Door" parent="." unique_id=801283105 instance=ExtResource("4_5ofac")]
+[node name="Door" parent="." unique_id=801283105 node_paths=PackedStringArray("Unlock_Sound") instance=ExtResource("4_5ofac")]
 position = Vector2(141, 19)
+Unlock_Sound = NodePath("AudioStreamPlayer2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Door" unique_id=1247985089]
+stream = ExtResource("5_mcryf")
 
 [node name="Player" parent="." unique_id=2055169610 instance=ExtResource("5_24wws")]
 position = Vector2(94, 241)
