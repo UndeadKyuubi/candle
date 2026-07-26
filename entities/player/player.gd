@@ -3,6 +3,7 @@ class_name Player
 
 #region exports
 @export_group("Nodes")
+@export_group("player")
 #@export var animated_sprite: AnimatedSprite2D
 #@export var cha
 @export var wax_bar: ProgressBar
@@ -13,6 +14,7 @@ class_name Player
 @export_group("Feel")
 @export var speed: float = 100.0
 @export_group("")
+@onready var Door=$"../Door"
 #endregion
 
 @onready var foreground_layer: TileMapLayer = $"../Foreground"
@@ -40,6 +42,7 @@ func _physics_process(delta: float) -> void:
 		heat_scale+=.05
 	if Input.is_action_just_released("scroll_down") and heat_scale>0.1:
 		heat_scale-=.05
+	
 	
 	_handle_animations(delta)
 	
